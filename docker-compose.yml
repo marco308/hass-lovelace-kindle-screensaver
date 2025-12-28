@@ -1,24 +1,23 @@
-version: "3.8"
-
 services:
   app:
     image: sibbl/hass-lovelace-kindle-screensaver:latest
     environment:
-      - HA_BASE_URL=https://your-path-to-home-assistant:8123
-      - HA_SCREENSHOT_URL=/lovelace?kiosk
-      - HA_ACCESS_TOKEN=eyJ0...
+      - HA_BASE_URL=https://homeassistant.marcuslab.uk
+      - HA_SCREENSHOT_URL=/dashboard-kindle/home?kiosk
+      - HA_ACCESS_TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiIyY2U5NDgxMmI2NTI0MzBmODFiMTJkM2Q1NWYyNzM2NyIsImlhdCI6MTc2Njk2MjYxNiwiZXhwIjoyMDgyMzIyNjE2fQ.oFGhmMn1WBKKBXOBUYpgcGwtwRt1CCdSyBRSnCO33vA
       - CRON_JOB=* * * * *
       - RENDERING_TIMEOUT=30000
       - RENDERING_DELAY=0
-      - RENDERING_SCREEN_HEIGHT=800
-      - RENDERING_SCREEN_WIDTH=600
+      - RENDERING_SCREEN_HEIGHT=1448
+      - RENDERING_SCREEN_WIDTH=1072
       - GRAYSCALE_DEPTH=8
       - OUTPUT_PATH=/output/cover
       - LANGUAGE=en
       - ROTATION=0
-      - SCALING=1
+      - SCALING=2
+      - REMOVE_GAMMA=true
     ports:
-      - 5000:5000
+      - 5001:5000
     volumes:
       - ./output/:/output
       - /etc/localtime:/etc/localtime:ro
