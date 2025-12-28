@@ -1,10 +1,11 @@
 services:
   app:
     image: sibbl/hass-lovelace-kindle-screensaver:latest
+    env_file:
+      - .env
     environment:
       - HA_BASE_URL=https://homeassistant.marcuslab.uk
       - HA_SCREENSHOT_URL=/dashboard-kindle/home?kiosk
-      - HA_ACCESS_TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiIyY2U5NDgxMmI2NTI0MzBmODFiMTJkM2Q1NWYyNzM2NyIsImlhdCI6MTc2Njk2MjYxNiwiZXhwIjoyMDgyMzIyNjE2fQ.oFGhmMn1WBKKBXOBUYpgcGwtwRt1CCdSyBRSnCO33vA
       - CRON_JOB=* * * * *
       - RENDERING_TIMEOUT=30000
       - RENDERING_DELAY=0
